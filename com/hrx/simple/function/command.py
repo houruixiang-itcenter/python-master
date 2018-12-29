@@ -97,3 +97,21 @@ def person(name, age, *, city, job):
 
 def person_defult(name, age, *args, city='shanghai', job='cooker'):
     print('name: ', name, 'age: ', age, 'other: ', city, job)
+
+
+# todo 可变参数  -- 降低函数调用的难度   对于没有特殊要求的使用默认的参数 有需求自己传入相关参数
+
+def fact(n):
+    if n == 1 or n == 0:
+        return 1
+    return n * fact(n - 1)
+
+
+def fact_init(n):
+    return fact_later(n, 1)
+
+
+def fact_later(n, param):
+    if n == 1:
+        return param
+    return fact_later(n - 1, n * param)
