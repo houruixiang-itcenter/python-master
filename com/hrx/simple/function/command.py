@@ -27,6 +27,21 @@ def move(x, y, step, angle=0):
     return nx, ny
 
 
+# todo 定义函数的test
+# todo 请定义一个函数quadratic(a, b, c)，接收3个参数，返回一元二次方程：ax2 + bx + c = 0 的两个解。
+def quadratic(a, b, c):
+    if a == 0:
+        raise TypeError('二元一次方程参数不能为0')
+    # 类型检查
+    if not isinstance(a, (int, float)) \
+            or not isinstance(b, (int, float)) \
+            or not isinstance(c, (int, float)):
+        raise TypeError('参数必须为整数')
+    defult = math.pow(b, 2) - 4 * a * c
+    if defult < 0:
+        raise TypeError('这个方程无解')
+    return (-b + math.sqrt(defult)) / (2 * a), (-b - math.sqrt(defult)) / (2 * a)
+
 # todo 函数定义默认参数、可变参数和关键字参数
 
 # 位置参数  -- 就是普通的参数
@@ -115,3 +130,49 @@ def fact_later(n, param):
     if n == 1:
         return param
     return fact_later(n - 1, n * param)
+
+
+# 递归实现汉诺塔
+# 利用递归函数移动汉诺塔:
+def hnt_move(n, a, b, c):
+    if n == 1:
+        print('move', a, '-->', c)
+    else:
+        hnt_move(n-1, a, c, b)
+        hnt_move(1, a, b, c)
+        hnt_move(n-1, b, a, c)
+
+
+# 利用切片实现 字符串的空格截取
+def trim(var):
+    if var == '':
+        return ''
+    low = 0
+    high = len(var) - 1
+    temp = ' '
+    while low < len(var) and high > 0:
+        if low > high:
+            return ''
+        if var[low] == ' ':
+            low = low + 1
+        if var[high] == ' ':
+            high = high - 1
+        if var[low] != ' ' and var[high] != ' ':
+            temp = var[low:high + 1]
+            break
+    return temp
+
+
+# todo 请使用迭代查找
+# if command.findMinAnd一个list中最小和最大值，并返回一个tuple：
+def findMinAndMax(list):
+    if list == []:
+        return (None, None)
+    min = list[0]
+    max = list[0]
+    for item in list:
+        if item <= min:
+            min = item
+        elif item > max:
+            max = item
+    return (min, max)
