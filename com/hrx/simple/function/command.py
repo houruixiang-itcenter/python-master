@@ -42,6 +42,7 @@ def quadratic(a, b, c):
         raise TypeError('这个方程无解')
     return (-b + math.sqrt(defult)) / (2 * a), (-b - math.sqrt(defult)) / (2 * a)
 
+
 # todo 函数定义默认参数、可变参数和关键字参数
 
 # 位置参数  -- 就是普通的参数
@@ -138,9 +139,9 @@ def hnt_move(n, a, b, c):
     if n == 1:
         print('move', a, '-->', c)
     else:
-        hnt_move(n-1, a, c, b)
+        hnt_move(n - 1, a, c, b)
         hnt_move(1, a, b, c)
-        hnt_move(n-1, b, a, c)
+        hnt_move(n - 1, b, a, c)
 
 
 # 利用切片实现 字符串的空格截取
@@ -176,3 +177,46 @@ def findMinAndMax(list):
         elif item > max:
             max = item
     return (min, max)
+
+
+# 斐波那契数列
+def fib(years):
+    n, pre, cur = 0, 0, 1
+    while n < years:
+        print(cur)
+        pre, cur = cur, pre + cur
+        n = n + 1
+    return 'end'
+
+
+def generator_fib(years):
+    n, pre, cur = 0, 0, 1
+    while n < years:
+        yield cur
+        pre, cur = cur, pre + cur
+        n = n + 1
+    return 'end'
+
+
+# 杨辉三角形
+#           1
+#          / \
+#         1   1
+#        / \ / \
+#       1   2   1
+#      / \ / \ / \
+#     1   3   3   1
+#    / \ / \ / \ / \
+#   1   4   6   4   1
+#  / \ / \ / \ / \ / \
+
+# 1  2   4   8   16
+
+def triangles(clum):
+    n, l = 0, [1]
+    while n < clum:
+        yield l
+        # append 会修改本身   返回值为None  和java中不同
+        l.append(int(math.pow(2, n + 1)))
+        n = n + 1
+    return 'end'
