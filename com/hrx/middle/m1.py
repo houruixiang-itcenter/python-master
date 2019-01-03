@@ -5,6 +5,8 @@
 # @Site    :
 # @File    : m1.py
 # @Software: PyCharm
+
+# python高级特性
 from collections.abc import Iterable
 
 from com.hrx.simple.function import command
