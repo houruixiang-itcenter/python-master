@@ -220,3 +220,12 @@ def triangles(clum):
         l.append(int(math.pow(2, n + 1)))
         n = n + 1
     return 'end'
+
+
+# todo sort test
+def by_name(t):
+    return t[0]
+
+
+def by_score(t):
+    return t[1]
