@@ -1,4 +1,5 @@
 # -*-coding:utf-8-*-
+import functools
 import math
 
 
@@ -229,3 +230,131 @@ def by_name(t):
 
 def by_score(t):
     return t[1]
+
+
+# 1-返回函数
+# python中高阶函数 不仅可以接受函数作为参数  还可以将函数做为返回值返回
+# 在python中定义方法有一下 不同的特性
+# todo  1.函数内部 支持定义函数   2.函数的参数可以是函数  返回值 也可以是函数  3.函数可以对象化  函数名可以理解为函数对象
+def lazy_sum(*args):
+    def sum():
+        sum = 0
+        for i in args:
+            sum = sum + i
+        return sum
+
+    return sum
+
+
+# 这个函数 中f 作为内部的闭包  i来自于外部类  所以 不会一次输出 1 4 9  只会 999
+def count():
+    fs = []
+    for i in range(1, 4):
+        def f():
+            return i * i
+
+        fs.append(f)
+    return fs
+
+
+def count_f():
+    fs = []
+    for i in range(1, 4):
+        def f(i):
+            def f1():
+                return i * i
+
+            return f1
+
+        fs.append(f(i))
+    return fs
+
+
+# 这个函数 中f 作为内部的闭包  f1做为
+def count_1():
+    def f(i):
+        def f1():
+            return i * i
+
+        return f1
+
+    fs = []
+    for i in range(1, 4):
+        fs.append(f(i))
+    return fs
+
+
+# todo 利用闭包返回一个计数器函数，每次调用它返回递增整数：
+def createCounter():
+    def counter(i=[0]):
+        i[0] = i[0] + 1
+        return i[0]
+
+    return counter
+
+
+def ff():
+    sum = 1
+    while True:
+        yield sum
+        sum = sum + 1
+
+
+def createCounter_1():
+    f = ff()
+
+    def fn():
+        return next(f)
+
+    return fn
+
+
+def createCounter_2():
+    x = 0
+
+    def counter():
+        nonlocal x
+        x += 1
+        return x
+
+    return counter
+
+
+# 现在，假设我们要增强now()函数的功能，比如，在函数调用前后自动打印日志，但又不希望修改now()函数的定义，
+#  这种在代码运行期间动态增加功能的方式，称之为“装饰器”（Decorator）
+#  本质上，decorator就是一个返回函数的高阶函数。所以，我们要定义一个能打印日志的decorator，可以定义如下：
+# 调用函数前打印log
+def log(func):
+    @functools.wraps(func)
+    def wrapper(*args, **kw):
+        print('call %s():' % func.__name__)
+        return func(*args, **kw)
+
+    return wrapper
+
+
+# 自定义log 文本
+def log_1(text):
+    def dec(func):
+        @functools.wraps(func)
+        def wrapper(*args, **kw):
+            print('%s %s():' % (text, func.__name__))
+            return func(*args, **kw)
+
+        return wrapper
+
+    return dec
+
+
+@log
+def now():
+    print('2019-1')
+
+
+@log_1('hrx....')
+def now_1():
+    print('2019-1')
+
+
+
+# 请设计一个decorator，它可作用于任何函数上，并打印该函数的执行时间：
