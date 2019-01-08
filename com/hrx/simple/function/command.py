@@ -1,6 +1,7 @@
 # -*-coding:utf-8-*-
 import functools
 import math
+import time
 
 
 def my_abs(x):
@@ -356,5 +357,21 @@ def now_1():
     print('2019-1')
 
 
-
 # 请设计一个decorator，它可作用于任何函数上，并打印该函数的执行时间：
+def log_time(text):
+    def dec(func):
+        @functools.wraps(func)
+        def wrapper(*args, **kw):
+            start_time = time.time()
+            f = func(*args, **kw)
+            print('%s %s ms:' % (text, 1000 * (time.time() - start_time)))
+            return f
+
+        return wrapper
+
+    return dec
+
+
+@log_time('这个方法打印的时间:  ')
+def now_2():
+    print('2019-1-8')
