@@ -33,6 +33,7 @@ def test():
     else:
         print('Too many arguments!')
 
+
 a = 2
 
 # 与java中的main  方法差不多 执行类的时候会执行 但是被其他类引用时候不会执行
@@ -46,6 +47,8 @@ if __name__ == '__main__':
 # todo 但是是通过变量命名来实现的  没有像java那样的public private  protected
 '''public --- abc'''
 '''private --- _abc或者__abc'''
+
+
 # todo 但是需要注意的是python中的所谓public 和private仅仅是定义上的区分  并不是不可以引用 而是不应该 更像是一种到的约束
 
 
