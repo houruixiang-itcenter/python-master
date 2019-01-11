@@ -41,7 +41,7 @@ class Student(object):
     # todo 当然 外部想要获取属性  可以通过set-get方法来获取修改
     # todo 这样做的目的 是为了封装解耦 也可以看做是一种OOD编程的习惯  这样set/get来设置/输出数据 可以根据需求定制化一些需求 如写一些钩子等
     def get_name(self):
-        return self.name
+        return self.__name
 
     def set_name(self, name):
         self.__name = name
