@@ -375,3 +375,12 @@ def log_time(text):
 @log_time('这个方法打印的时间:  ')
 def now_2():
     print('2019-1-8')
+
+
+# 多态的实现--只需要传入 obj  有run方法即可
+def run_twice(anim):
+    anim.run()
+    anim.run()
+
+
+

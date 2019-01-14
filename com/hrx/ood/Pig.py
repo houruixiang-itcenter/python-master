@@ -7,21 +7,18 @@
 # @Software: PyCharm
 from com.hrx.ood.Animal import Animal
 
-# 为了统计Dog数，可以给dOG类增加一个类属性，每创建一个实例，该属性自动增加：
-class Dog(Animal):
+# 为了统计Pig数，可以给Pig类增加一个类属性，每创建一个实例，该属性自动增加：
+class Pig(Animal):
     count = 0
 
     def __init__(self):
 
-        self.count = self.count + 1
+        Pig.count = Pig.count + 1
         pass
 
-    age = 18
-    name = 'john'
-    form = 'china'
 
     def run(self):
-        print('dog is running')
+        print('pig is running')
 
     def print_this(self):
         print('hallo my son')
