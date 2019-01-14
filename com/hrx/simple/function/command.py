@@ -310,6 +310,7 @@ def createCounter_1():
     return fn
 
 
+# nonlocal是用来修改外部的非全局变量 global是用来修改全局变量
 def createCounter_2():
     x = 0
 
@@ -381,6 +382,3 @@ def now_2():
 def run_twice(anim):
     anim.run()
     anim.run()
-
-
-
