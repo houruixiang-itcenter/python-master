@@ -5,6 +5,9 @@
 # @Site    : 
 # @File    : Animal.py
 # @Software: PyCharm
+from com.hrx.ood.Animal import Animal
 
-class Animal:
-    pass
+
+class Bird(Animal):
+    def name(self):
+        print('this bird')

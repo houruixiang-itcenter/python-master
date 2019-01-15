@@ -5,6 +5,10 @@
 # @Site    : 
 # @File    : Animal.py
 # @Software: PyCharm
+from com.hrx.ood.Animal import Animal
+from com.hrx.ood.Bird import Bird
+from com.hrx.ood.MixIn.RunnableMixIn import RunnableMixIn
 
-class Animal:
+
+class Ostrich(Bird,RunnableMixIn):
     pass

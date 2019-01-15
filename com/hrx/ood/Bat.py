@@ -5,6 +5,10 @@
 # @Site    : 
 # @File    : Animal.py
 # @Software: PyCharm
+from com.hrx.ood.Animal import Animal
+from com.hrx.ood.Mammal import Mammal
+from com.hrx.ood.MixIn.FlyableMixIn import FlyableMixIn
 
-class Animal:
+
+class Bat(Mammal, FlyableMixIn):
     pass

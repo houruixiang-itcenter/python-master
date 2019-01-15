@@ -146,6 +146,7 @@ class Ood:
     print(d.voice)
     try:
         print(Dog.voice)
+    # AttributeError --- 属性错误
     except AttributeError as e:
         print('当前类---没有这个属性')
 
