@@ -186,7 +186,7 @@ while True:
 
 print('-------------------------------迭代器------------------------------------------')
 
-# Iterator是迭代器  Iterable是克爹带对象
+# Iterator是迭代器  Iterable是可迭代对象
 
 # 可以直接作用于for循环的数据类型有以下几种：
 #
@@ -196,7 +196,8 @@ print('-------------------------------迭代器---------------------------------
 
 
 
-# 需要注意的是  list、tuple、dict、set、str是 Iterable对象 而generator，包括生成器和带yield的generator function是 Iterator对象
+# 需要注意的是  list、tuple、dict、set、str是 Iterable 可迭代对象
+# 而generator，包括生成器和带yield的generator function是 Iterator 迭代器
 
 
 # 这是因为Python的Iterator对象表示的是一个数据流，Iterator对象可以被next()函数调用并不断返回下一个数据，
