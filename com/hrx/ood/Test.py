@@ -28,7 +28,7 @@ class Ood_test(object):
     # 注意 这里使用 __getitem__关键字  参数的作用决定 循环几次 所以从外面 调用看起来 这个类就像一个 list  可以根据索引取到值
     def __getitem__(self, item):
         if isinstance(item, int):
-            a, b = 1
+            a, b = 1, 1
             for x in range(item):
                 a, b = b, a + b
             return a
@@ -37,10 +37,31 @@ class Ood_test(object):
             stop = item.stop
             if start is None:
                 start = 0
-            a, b = 1
+            a, b = 1, 1
             L = []
             for x in range(stop):
                 if x >= start:
                     L.append(a)
                 a, b = b, a + b
             return L
+
+
+class Ood_test1(object):
+
+    def __init__(self):
+        self.name = "feng"
+
+    def __getattr__(self, item):
+        if item != "name":
+            return "libai"
+
+    def __getitem__(self, item):
+        return self.dict[item]
+
+    dict = {}
+
+    def __setitem__(self, key, value):
+        self.dict[key] = value
+
+    def __delitem__(self, key):
+        self.dict.pop(key)
