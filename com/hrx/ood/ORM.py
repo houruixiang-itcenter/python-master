@@ -45,7 +45,7 @@ class ModelMetaclass(type):
 		attrs['__mappings__'] = mappings  # 保存属性和列的映射关系
 		attrs['__table__'] = name  # 假设表名和类名一致
 		return type.__new__(cls, name, bases, attrs)
-		super(IntegerField, self).__init__(name, 'bigint')
+
 
 
 class Model(dict, metaclass=ModelMetaclass):
@@ -82,3 +82,7 @@ class Usr(Model):
 	age = IntegerField('age')
 	sex = StringField('sex')
 	pass
+
+
+
+
