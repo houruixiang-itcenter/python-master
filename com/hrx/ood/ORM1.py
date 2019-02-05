@@ -44,6 +44,7 @@ class BDModelMetaclass(type):
             attrs.pop(k)
         attrs['__mappings__'] = mapping
         attrs['__table_name__'] = name
+        # 这个function是obj的方法
         return type.__new__(cls, name, base, attrs)
 
 
