@@ -63,10 +63,9 @@ d = {'name': 'lily', 'age': 18, 'sex': '男'}
 json_str = json.dumps(d)
 print(json_str)
 # json字符串反序列化为python对象
-print(json.loads(json_str))\
-
-# 同样可以使用 json.dump(x,f)/json.load(f)这种写入文件的形式进行json的序列化和反序列化
-
+print(json.loads(json_str)) \
+ \
+    # 同样可以使用 json.dump(x,f)/json.load(f)这种写入文件的形式进行json的序列化和反序列化
 
 # JSON进阶
 # Python的dict对象可以直接序列化为JSON的{}，不过，很多时候，我们更喜欢用class表示对象，比如定义Student类，然后序列化：
@@ -125,3 +124,15 @@ print(json.loads(json_str))\
 # 打印出的是反序列化的Student实例对象。
 
 
+obj = dict(name='小明', age=20)
+# ensure_ascii true:中文不被还原  false:中文会被还原
+s = json.dumps(obj, ensure_ascii=True)
+s1 = json.dumps(obj, ensure_ascii=False)
+print(s)
+print(s1)
+
+# 小结
+# Python语言特定的序列化模块是pickle，但如果要把序列化搞得更通用、更符合Web标准，就可以使用json模块。
+#
+# json模块的dumps()和loads()函数是定义得非常好的接口的典范。当我们使用时，只需要传入一个必须的参数。
+# 但是，当默认的序列化或反序列机制不满足我们的要求时，我们又可以传入更多的参数来定制序列化或反序列化的规则，既做到了接口简单易用，又做到了充分的扩展性和灵活性。
