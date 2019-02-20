@@ -8,6 +8,8 @@
 # todo Python之所以自称“batteries included”，就是因为内置了许多非常有用的模块，无需额外安装和配置，即可直接使用。
 from datetime import datetime, timedelta, timezone
 
+from com.hrx.inner_moudle.collections_moudle import haha
+
 print("-------------------------------------------获取当前的日期和时间----------------------------------------------------")
 # todo datetime是Python处理日期和时间的标准库。注意需要引入的是datetime模块的datetime类  如果仅仅import datetime
 # todo 则需要使用datetime.datetime
@@ -68,14 +70,14 @@ print(utc_time)
 
 print("-------------------------------------------时区转化----------------------------------------------")
 # 我们可以先通过utcnow()拿到当前的UTC时间，再转换为任意时区的时间：
-utc_dt = datetime.utcnow().replace(timezone.utc)
-print(utc_dt)
-# astimezone()将转换时区为北京时间:
-utc_dt_bj = datetime.astimezone(timezone(timedelta(hours=8)))
-print(utc_dt_bj)
-# astimezone()将转换时区为东京时间:
-utc_dt_dj = datetime.astimezone(timezone(timedelta(hours=9)))
-print(utc_dt_dj)
+# utc_dt = datetime.utcnow().replace(timezone.utc)
+# print(utc_dt)
+# # astimezone()将转换时区为北京时间:
+# utc_dt_bj = datetime.astimezone(timezone(timedelta(hours=8)))
+# print(utc_dt_bj)
+# # astimezone()将转换时区为东京时间:
+# utc_dt_dj = datetime.astimezone(timezone(timedelta(hours=9)))
+# print(utc_dt_dj)
 
 # 时区转换的关键在于，拿到一个datetime时，要获知其正确的时区，然后强制设置时区，作为基准时间。
 #
@@ -87,3 +89,7 @@ print(utc_dt_dj)
 # datetime表示的时间需要时区信息才能确定一个特定的时间，否则只能视为本地时间。
 #
 # 如果要存储datetime，最佳方法是将其转换为timestamp再存储，因为timestamp的值与时区完全无关。
+
+
+print("---------------------------------------------------------------------------------")
+print(haha())
