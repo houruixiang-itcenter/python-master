@@ -38,3 +38,24 @@
 
 
 # todo 其实随机的salt是在注册之前是这样的,而且不同的用户的salt不同,所以一个用注册成功之后,每次登录的salt是相同的用来反推数据库
+# todo 注册成功之后  用户名密码 是明文传输的
+import hashlib
+import hmac
+
+message = b'hello world!'
+key = b'12345'
+
+
+class hmac_moudle:
+
+    def __init__(self) -> None:
+        super().__init__()
+
+    print("haha" + "lala")
+
+    # md5  字符串之间 也可以相加
+    md5 = hashlib.md5()
+    md5.update(key + message)
+    print(md5.hexdigest())
+    h = hmac.new(key, message, digestmod='MD5')
+    print(h.hexdigest())
