@@ -64,7 +64,8 @@ with request.urlopen(req, data=login_data.encode('utf-8')) as f:
     print('Data:', f.read().decode('utf-8'))
 
 
-
+# urllib提供的功能就是利用程序去执行各种HTTP请求。如果要模拟浏览器完成特定功能，需要把请求伪装成浏览器。
+# 伪装的方法是先监控浏览器发出的请求，再根据浏览器的请求头来伪装，User-Agent头就是用来标识浏览器的。
 
 
 
