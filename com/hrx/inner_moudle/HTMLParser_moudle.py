@@ -6,9 +6,10 @@
 # @File    : HTMLParser_moudle.py
 # @Software: PyCharm
 
+# todo 核心就是字符串的适配
+
 
 from html.parser import HTMLParser
-from html.entities import name2codepoint
 
 
 class MyHTMLParser(HTMLParser):
