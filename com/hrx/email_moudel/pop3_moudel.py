@@ -16,6 +16,9 @@
 
 # todo 收取邮件  1.用poplib把邮件的原始文本下载到本地   2.用email解析源文件,还原为邮件对象
 import poplib
+from email.parser import Parser
+
+from com.hrx.email_moudel.PopParser import print_info
 
 email = input('email: ')
 pwd = input('pwd: ')
@@ -29,11 +32,11 @@ server.set_debuglevel(1)
 print(server.getwelcome().decode('utf-8'))
 
 # todo 身份认证
-(server.user(email))
+server.user(email)
 server.pass_(pwd)
 
 # todo stat()返回邮件的数量和占用空间
-print('messages:  $s, Size: %s' % server.stat())
+print('messages:  $s, Size: %s' % str(server.stat()))
 
 # todo list()返回所有邮件的编号
 resp, list, octets = server.list()
@@ -46,9 +49,12 @@ resp, lines, octets = server.retr(index)
 print('Cuurent E-mail: \r\n resp: %s \r\n list: %s \r\n octets: %s' % (resp, lines, octets))
 
 # todo lines存储了原始文本的每一行   下面来获取原始文本
-msg = b'\r\n'.join(lines).decode('utf-8')
+msg_content = b'\r\n'.join(lines).decode('utf-8')
 with open('pop.txt','w') as f:
-	f.write(msg)
+	f.write(msg_content)
+msg = Parser().parsestr(msg_content)
+print('----------------------------------------以下是正文--------------------------------------------------------')
+print_info(msg)
 	
 # 可以根据邮件索引号直接从服务器删除邮件:
 # server.dele(index)
