@@ -3,7 +3,7 @@
 # @Time    : 2019/3/24 下午5:45
 # @Author  : Aries
 # @Site    : 
-# @File    : app.py.py
+# @File    : web_app.py.py
 # @Software: PyCharm
 
 
@@ -43,7 +43,7 @@ def signin():
 
 #
 # if __name__ == '__main__':
-# 	app.run()
+# 	web_app.run()
 #
 #
 # 实际的Web App应该拿到用户名和口令后，去数据库查询再比对，来判断用户是否能登录成功。

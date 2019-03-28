@@ -61,9 +61,9 @@ parser.feed('''
 
     <meta name="application-name" content="Python.org">
     <meta name="msapplication-tooltip" content="The official home of the Python Programming Language">
-    <meta name="apple-mobile-web-app-title" content="Python.org">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-web_app-title" content="Python.org">
+    <meta name="apple-mobile-web-web_app-capable" content="yes">
+    <meta name="apple-mobile-web-web_app-status-bar-style" content="black">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="HandheldFriendly" content="True">
